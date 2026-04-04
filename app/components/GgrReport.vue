@@ -103,7 +103,7 @@ const groupings = computed(() => {
 <template>
   <div class="space-y-6">
     <div
-      class="flex items-center justify-between bg-[#49215D] p-3 rounded-xl shadow-sm border border-gray-100"
+      class="flex items-center justify-between bg-[#2A2A2A] p-3 rounded-xl shadow-sm border border-gray-100"
     >
       <div>
         <h2 class="text-sm font-bold text-gray-100">Dashboard</h2>

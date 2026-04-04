@@ -41,7 +41,7 @@ const submitForm = () => {
       class="fixed inset-0 z-50 flex items-center justify-center bg-black text-xs"
     >
       <div
-        class="relative w-[90%] md:max-w-md rounded-md bg-[#49215D] text-white p-4 font-sans"
+        class="relative w-[90%] md:max-w-md rounded-md bg-[#2a2a2a] text-white p-4 font-sans"
       >
         <!-- Logo -->
         <div
@@ -81,8 +81,8 @@ const submitForm = () => {
             class="mt-2 w-full rounded py-2 text-sm font-bold hover:opacity-75 transition-all duration-300"
             :class="
               isFormValid
-                ? 'bg-orange-500 text-black cursor-pointer'
-                : 'bg-[#1e042c] opacity-95 cursor-not-allowed'
+                ? 'bg-[#DB7C2E] text-black cursor-pointer'
+                : 'bg-gray-400 opacity-95 cursor-not-allowed'
             "
           >
             LOGIN

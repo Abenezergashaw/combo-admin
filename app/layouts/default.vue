@@ -73,12 +73,12 @@ onMounted(async () => {
     <!-- Sidebar -->
     <aside
       :class="[
-        'fixed z-30 top-0 left-0 h-full w-80 bg-[#3a184a] text-white transform transition-transform duration-300',
+        'fixed z-30 top-0 left-0 h-full w-80 bg-[#2A2A2A] text-white transform transition-transform duration-300',
         open ? 'translate-x-0' : '-translate-x-full',
         'md:translate-x-0 md:static',
       ]"
     >
-      <div class="p-3 text-lg font-bold border-b">Light Bet</div>
+      <div class="p-3 text-lg font-bold border-b">Combo Bet</div>
 
       <nav class="p-2 space-y-1">
         <NuxtLink
@@ -113,11 +113,11 @@ onMounted(async () => {
       <!-- Top Bar -->
 
       <header
-        class="p-3 flex items-center justify-between bg-[#49215D] text-white"
+        class="p-3 flex items-center justify-between bg-[#2A2A2A] text-white"
       >
         <button class="md:hidden text-xl" @click="open = true">☰</button>
 
-        <div class="text-lg font-bold uppercase">Light Bet</div>
+        <div class="text-lg font-bold uppercase">Combo Bet</div>
 
         <div class="text-sm opacity-80">{{ user?.role }}</div>
       </header>
