@@ -106,7 +106,7 @@ const changeRange = (e) => {
 
       <div class="bg-gray-200 p-3 rounded">
         <p class="text-xs text-gray-600">Net GGR</p>
-        <p class="font-semibold">{{ report.total.net_ggr }}</p>
+        <p class="font-semibold">{{ report.total.net_ggr.toFixed(2) }}</p>
       </div>
 
       <div class="bg-gray-200 p-3 rounded">
@@ -117,6 +117,45 @@ const changeRange = (e) => {
       <div class="bg-gray-200 p-3 rounded">
         <p class="text-xs text-gray-600">Active Members</p>
         <p class="font-semibold">{{ report.total.active_members }}</p>
+      </div>
+    </div>
+
+    <!-- child data  -->
+    <div v-if="report.childData">
+      <span>Children Data</span>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Bets</p>
+          <p class="font-semibold">{{ report.childData.total_bets ?? 0 }}</p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Wins</p>
+          <p class="font-semibold">{{ report.childData.total_wins ?? 0 }}</p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Bonus Wins</p>
+          <p class="font-semibold">
+            {{ report.childData.total_bonus_wins ?? 0 }}
+          </p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Refunds</p>
+          <p class="font-semibold">{{ report.childData.total_refunds ?? 0 }}</p>
+        </div>
+
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Final</p>
+          <p class="font-semibold">
+            {{
+              (
+                report.childData.total_bets -
+                report.childData.total_wins -
+                report.childData.total_bonus_wins -
+                report.childData.total_refunds
+              ).toFixed(2) ?? 0
+            }}
+          </p>
+        </div>
       </div>
     </div>
 
