@@ -193,7 +193,7 @@ const changeRange = (e) => {
       </div>
       <div class="bg-gray-200 p-3 rounded">
         <p class="text-xs text-gray-600">Total Wins</p>
-        <p class="font-semibold">{{ report.childData.totalWins }}</p>
+        <p class="font-semibold">{{ report.childData.total_wins }}</p>
       </div>
       <div class="bg-gray-200 p-3 rounded">
         <p class="text-xs text-gray-600">Total Bonus Wins</p>
@@ -210,7 +210,7 @@ const changeRange = (e) => {
           {{
             (
               report.childData.total_bets -
-              report.childData.totalWins -
+              report.childData.total_wins -
               report.childData.total_bonus_wins -
               report.childData.total_refunds
             ).toFixed(2)
