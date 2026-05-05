@@ -184,6 +184,40 @@ const changeRange = (e) => {
       </div>
     </div>
 
+    <!-- children data  -->
+    <div>Children Data</div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Total Bets</p>
+        <p class="font-semibold">{{ report.childData.total_bets }}</p>
+      </div>
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Total Wins</p>
+        <p class="font-semibold">{{ report.childData.totalWins }}</p>
+      </div>
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Total Bonus Wins</p>
+        <p class="font-semibold">{{ report.childData.total_bonus_wins }}</p>
+      </div>
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Total Refunds</p>
+        <p class="font-semibold">{{ report.childData.total_refunds }}</p>
+      </div>
+
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Final</p>
+        <p class="font-semibold">
+          {{
+            (
+              report.childData.total_bets -
+              report.childData.totalWins -
+              report.childData.total_bonus_wins -
+              report.childData.total_refunds
+            ).toFixed(2)
+          }}
+        </p>
+      </div>
+    </div>
     <!-- children -->
 
     <div class="space-y-2">
