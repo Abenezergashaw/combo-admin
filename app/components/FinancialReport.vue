@@ -8,6 +8,8 @@ const emit = defineEmits(["changeRange", "loadCustomRange"]);
 
 const router = useRouter();
 
+const user = useAuth();
+
 const ranges = [
   { label: "Day", value: "day" },
   { label: "2 Days", value: "2day" },
@@ -185,39 +187,46 @@ const changeRange = (e) => {
     </div>
 
     <!-- children data  -->
-    <div>Children Data</div>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-      <div class="bg-gray-200 p-3 rounded">
-        <p class="text-xs text-gray-600">Total Bets</p>
-        <p class="font-semibold">{{ report.childData.total_bets }}</p>
-      </div>
-      <div class="bg-gray-200 p-3 rounded">
-        <p class="text-xs text-gray-600">Total Wins</p>
-        <p class="font-semibold">{{ report.childData.total_wins }}</p>
-      </div>
-      <div class="bg-gray-200 p-3 rounded">
-        <p class="text-xs text-gray-600">Total Bonus Wins</p>
-        <p class="font-semibold">{{ report.childData.total_bonus_wins }}</p>
-      </div>
-      <div class="bg-gray-200 p-3 rounded">
-        <p class="text-xs text-gray-600">Total Refunds</p>
-        <p class="font-semibold">{{ report.childData.total_refunds }}</p>
-      </div>
+    <div v-if="report.result.role === 'cashier'">
+      <div>Children Data</div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Bets</p>
+          <p class="font-semibold">{{ report.childData.total_bets ?? 0.0 }}</p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Wins</p>
+          <p class="font-semibold">{{ report.childData.total_wins ?? 0.0 }}</p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Bonus Wins</p>
+          <p class="font-semibold">
+            {{ report.childData.total_bonus_wins ?? 0.0 }}
+          </p>
+        </div>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Total Refunds</p>
+          <p class="font-semibold">
+            {{ report.childData.total_refunds ?? 0.0 }}
+          </p>
+        </div>
 
-      <div class="bg-gray-200 p-3 rounded">
-        <p class="text-xs text-gray-600">Final</p>
-        <p class="font-semibold">
-          {{
-            (
-              report.childData.total_bets -
-              report.childData.total_wins -
-              report.childData.total_bonus_wins -
-              report.childData.total_refunds
-            ).toFixed(2)
-          }}
-        </p>
+        <div class="bg-gray-200 p-3 rounded">
+          <p class="text-xs text-gray-600">Final</p>
+          <p class="font-semibold">
+            {{
+              (
+                report.childData.total_bets -
+                report.childData.total_wins -
+                report.childData.total_bonus_wins -
+                report.childData.total_refunds
+              ).toFixed(2)
+            }}
+          </p>
+        </div>
       </div>
     </div>
+
     <!-- children -->
 
     <div class="space-y-2">
